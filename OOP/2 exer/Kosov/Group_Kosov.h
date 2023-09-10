@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include <algorithm>
-#include "Student_Kosov.h"
+#include "Starosta_Kosov.h"
 
 using namespace std;
 
@@ -10,9 +10,11 @@ private:
     vector<Student_Kosov> students;
 public:
     Group();
+    void input_starosta(Starosta_Kosov& starosta);
     void input_student(Student_Kosov& student);
     int size_group();
-    void print_all();
-    void write_to_file(string way_to_file);
+    void print_all(int id_starosta, int respons);
+    void write_to_file(string way_to_file, int id_starosta, int respons);
     void clearr();
+    int input_students_from_file(Student_Kosov& student);
 };

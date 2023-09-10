@@ -40,18 +40,14 @@ ifstream& operator>>(ifstream& input, Student_Kosov& student) {
     return input;
 }
 
-void Student_Kosov::write_to_file(string nameFile) {
+void Student_Kosov::write_to_file(string nameFile, int id_starosta, int respons) {
     ofstream outputFile(nameFile, ios::app);
     if (!outputFile) {
         cerr << "\nError open. Try again\n" << endl;
         return;
     }
-    outputFile <<
-        id << endl <<
-        first_name << endl <<
-        second_name << endl <<
-        age << endl <<
-        several_mark << endl;
+    (id == id_starosta) ? outputFile << respons << endl << id << endl << first_name << endl << second_name << endl << age << endl << several_mark << endl : 
+        outputFile << id << endl << first_name << endl << second_name << endl << age << endl << several_mark << endl;
     outputFile.close();
 }
 

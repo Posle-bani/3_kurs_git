@@ -141,11 +141,13 @@
   <ItemGroup>
     <ClCompile Include="Group_Kosov.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Starosta_Kosov.cpp" />
     <ClCompile Include="Student_Kosov.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Group_Kosov.h" />
+    <ClInclude Include="Starosta_Kosov.h" />
     <ClInclude Include="Student_Kosov.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
