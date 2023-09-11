@@ -35,8 +35,8 @@ void Student_Kosov::print_info() {
 };
 
 
-ifstream& operator>>(ifstream& input, shared_ptr<Student_Kosov>& student) {
-    input >> student->id >> student->first_name >> student->second_name >> student->age >> student->several_mark;
+ifstream& operator>>(ifstream& input, Student_Kosov& student) {
+    input >> student.id >> student.first_name >> student.second_name >> student.age >> student.several_mark;
     return input;
 };
 

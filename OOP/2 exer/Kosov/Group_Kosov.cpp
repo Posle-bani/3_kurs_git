@@ -4,11 +4,11 @@ Group::Group() {
     vector<shared_ptr<Student_Kosov>> students = {};
 }
 
-void Group::input_student(shared_ptr<Student_Kosov>& student) {
-    students.push_back(student);
+void Group::input_student(shared_ptr<Student_Kosov> ptr) {
+    students.push_back(ptr);
 }
 
-void Group::input_starosta(shared_ptr<Starosta_Kosov>& starosta) {
+void Group::input_starosta(shared_ptr<Starosta_Kosov> starosta) {
     students.insert(students.begin(), starosta);
 } 
 
@@ -34,7 +34,7 @@ void Group::write_to_file(string way_to_file, int id_starosta, int respons) {
         });
 }
 
-int Group::input_students_from_file(shared_ptr<Student_Kosov>& student_new) {
+int Group::input_students_from_file(shared_ptr<Student_Kosov> student_new) {
     int id = student_new->id;
     for (shared_ptr<Student_Kosov> st : students) {
         if (st->id == student_new->id) {
