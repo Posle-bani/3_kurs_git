@@ -7,8 +7,9 @@ int main()
 {
     int choise, flag = 0, id = 0, choise_starosta = 0, id_starosta = 0, flag_starosta = 0;
     bool is_starosta_created = 0;
-    Student_Kosov student;
-    Starosta_Kosov starosta;
+    shared_ptr<Student_Kosov> student;
+    //student = make_shared
+    shared_ptr<Starosta_Kosov> starosta;
     Group group;
     while (flag != 1) {
         cout << "\nChoose next:\n1. Input new student.\n2. Output students.\n3. Input students from file.\n4. Output student in file.\n5. Clear.\n0. Exit.\n";
@@ -16,7 +17,7 @@ int main()
         switch (choise) {
         case 1: {
             if (is_starosta_created == 1) {
-                student.init_student(++id);
+                student->init_student(++id);
                 group.input_student(student);
             } else {
                 cout << "1. Create starosta." << endl
@@ -25,14 +26,14 @@ int main()
                 switch (choise_starosta) {
                 case 1: {
                     is_starosta_created = 1;
-                    starosta.init_student(++id);
+                    starosta->init_student(++id);
                     id_starosta = id;
-                    starosta.set_respon();
+                    starosta->set_respon();
                     group.input_starosta(starosta);
                     break;
                 }
                 case 2: {
-                    student.init_student(++id);
+                    student->init_student(++id);
                     group.input_student(student);
                     break;
                 }
@@ -45,7 +46,7 @@ int main()
             break;
         }
         case 2: {
-            group.print_all(id_starosta, starosta.get_respon());
+            group.print_all(id_starosta, starosta->get_respon());
             break;
         }
         case 3: {
@@ -61,10 +62,10 @@ int main()
             }
             getline(file, line);
             respons = stoi(line);
-            if (flag_starosta == 0) { starosta.set_respon_from_file(respons); }
+            if (flag_starosta == 0) { starosta->set_respon_from_file(respons); }
             while (file >> student) {
                 if (flag_starosta == 0) { 
-                    id_starosta = student.get_id();
+                    id_starosta = student->get_id();
                     id = 1; 
                 }
                 flag_starosta = 1;
@@ -88,7 +89,7 @@ int main()
                 break;
             }
             file << "";
-            group.write_to_file(way_to_file, id_starosta, starosta.get_respon());
+            group.write_to_file(way_to_file, id_starosta, starosta->get_respon());
             file.close();  
             cout << "Success\n";
             break;

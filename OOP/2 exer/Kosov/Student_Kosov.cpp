@@ -35,10 +35,10 @@ void Student_Kosov::print_info() {
 };
 
 
-ifstream& operator>>(ifstream& input, Student_Kosov& student) {
-    input >> student.id >> student.first_name >> student.second_name >> student.age >> student.several_mark;
+ifstream& operator>>(ifstream& input, shared_ptr<Student_Kosov>& student) {
+    input >> student->id >> student->first_name >> student->second_name >> student->age >> student->several_mark;
     return input;
-}
+};
 
 void Student_Kosov::write_to_file(string nameFile, int id_starosta, int respons) {
     ofstream outputFile(nameFile, ios::app);
