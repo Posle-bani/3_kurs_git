@@ -16,16 +16,13 @@ int Group::size_group() {
     return (int)students.size();
 }
 
-void Group::print_all(int id_starosta, int respons) {
+void Group::print_all() {
     if (students.size() == 0) {
         cout << "Nothing to output:(\n";
     }
-    for_each(students.begin(), students.end(), [id_starosta, respons](shared_ptr<Student_Kosov>& student) {
-        if (id_starosta == student->get_id()) {
-            cout << "\nStarosta with " << respons << " responsibilities.";
-        }
+    for (auto& student : students) {
         student->print_info();
-        });
+    }
 }
 
 void Group::write_to_file(string way_to_file, int id_starosta, int respons) {
@@ -35,11 +32,11 @@ void Group::write_to_file(string way_to_file, int id_starosta, int respons) {
 }
 
 int Group::input_students_from_file(shared_ptr<Student_Kosov> student_new) {
-    int id = student_new->id;
+    int id = student_new->get_id();
     for (shared_ptr<Student_Kosov> st : students) {
-        if (st->id == student_new->id) {
-           student_new->id = (int)students.size() + 1;
-           id = student_new->id;
+        if (st->get_id() == student_new->get_id()) {
+           student_new->set_id((int)students.size() + 1);
+           id = student_new->get_id();
         }
     }
     students.push_back(student_new);

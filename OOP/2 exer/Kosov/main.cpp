@@ -49,12 +49,11 @@ int main()
             break;
         }
         case 2: {
-            group.print_all(id_starosta, starosta.get_respon());
+            group.print_all();
             break;
         }
         case 3: {
             string way_to_file, line;
-            int respons;
             is_starosta_created = 1;
             cout << "Input way to file:\n";
             cin >> way_to_file;
@@ -63,15 +62,12 @@ int main()
                 cerr << "Can`t open file.\n";
                 break;
             }
-            getline(file, line);
-            respons = stoi(line);
-            if (flag_starosta == 0) { starosta.set_respon_from_file(respons); }
+            if (file >> starosta) {
+                shared_ptr<Starosta_Kosov> ptr = make_shared<Starosta_Kosov>(starosta);
+                id = group.input_students_from_file(ptr);
+                id = 1;
+            }
             while (file >> student) {
-                if (flag_starosta == 0) { 
-                    id_starosta = student.get_id();
-                    id = 1; 
-                }
-                flag_starosta = 1;
                 shared_ptr<Student_Kosov> ptr = make_shared<Student_Kosov>(student);
                 id = group.input_students_from_file(ptr);
             }

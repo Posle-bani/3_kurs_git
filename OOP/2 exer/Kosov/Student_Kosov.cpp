@@ -28,10 +28,46 @@ int Student_Kosov::get_id() {
     return id;
 };
 
+void Student_Kosov::set_id(int value) {
+    id = value;
+}
+
+string Student_Kosov::get_first_name() {
+    return first_name;
+};
+
+void Student_Kosov::set_first_name(string value) {
+    first_name = value;
+};
+
+string Student_Kosov::get_second_name() {
+    return second_name;
+};
+
+void Student_Kosov::set_second_name(string value) {
+    second_name = value;
+};
+
+int Student_Kosov::get_age() {
+    return age;
+};
+
+void Student_Kosov::set_age(int value) {
+    age = value;
+};
+
+double Student_Kosov::get_several_mark() {
+    return several_mark;
+};
+
+void Student_Kosov::set_several_mark(double value) {
+    several_mark = value;
+};
+
 void Student_Kosov::print_info() {
-    cout << "\nid: " << id << "\nfirst name: " << first_name <<
-        "\nsecond name: " << second_name << "\nage: " << age <<
-        "\nseveral mark: " << several_mark << "\n";
+    cout << "\nid: " << get_id() << "\nfirst name: " << get_first_name() <<
+        "\nsecond name: " << get_second_name() << "\nage: " << get_age() <<
+        "\nseveral mark: " << get_several_mark() << "\n";
 };
 
 
