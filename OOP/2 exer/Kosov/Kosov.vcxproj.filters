@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="main_Kosov.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Student_Kosov.cpp">
@@ -24,7 +24,7 @@
     <ClCompile Include="Group_Kosov.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Utils.cpp">
+    <ClCompile Include="Utils_Kosov.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Starosta_Kosov.cpp">
@@ -38,7 +38,7 @@
     <ClInclude Include="Group_Kosov.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Utils.h">
+    <ClInclude Include="Utils_Kosov.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Starosta_Kosov.h">

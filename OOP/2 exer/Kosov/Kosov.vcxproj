@@ -44,6 +44,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -140,16 +141,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Group_Kosov.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="main_Kosov.cpp" />
     <ClCompile Include="Starosta_Kosov.cpp" />
     <ClCompile Include="Student_Kosov.cpp" />
-    <ClCompile Include="Utils.cpp" />
+    <ClCompile Include="Utils_Kosov.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Group_Kosov.h" />
     <ClInclude Include="Starosta_Kosov.h" />
     <ClInclude Include="Student_Kosov.h" />
-    <ClInclude Include="Utils.h" />
+    <ClInclude Include="Utils_Kosov.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,7 +1,1 @@
-﻿  Group_Kosov.cpp
-  Starosta_Kosov.cpp
-  Student_Kosov.cpp
-  Utils.cpp
-  main.cpp
-  Создание кода...
-  Kosov.vcxproj -> C:\Users\Anton_K\Desktop\3Kurs\3_kurs_git\OOP\2 exer\Kosov\x64\Debug\Kosov.exe
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(480,5): error MSB8041: для этого проекта требуются библиотеки MFC. Установите их с помощью установщика Visual Studio (вкладка "Отдельные компоненты") для всех используемых архитектур и наборов инструментов.

@@ -2,9 +2,11 @@
 #include <string>
 #include <fstream>
 #include <iostream>
-#include "Utils.h"
+#include <afx.h>
+#include <afxwin.h>
+#include "Utils_Kosov.h"
 
-class Student_Kosov {
+class Student_Kosov : public CObject {
 private:
     string first_name;
     string second_name;
