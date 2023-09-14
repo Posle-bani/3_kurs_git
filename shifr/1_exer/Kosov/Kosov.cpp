@@ -25,10 +25,6 @@ string input_keyword() {
     return key; 
 }
 
-bool is_alpha(char symb) {
-    return (symb >= 'A' && symb <= 'Z') || (symb >= 'a' && symb <= 'z');
-}
-
 ifstream correct_ifstream(string& name_file, int choice) {
     choice == 1 ? cout << "Input name of file with text:\n" : cout << "Input name of file with shifr:\n";
     cin >> name_file;
@@ -53,9 +49,6 @@ void deshifr(ifstream& file, ofstream& file_2, string key) {
     file_2 << "";
     while (file.get(symb)) {
         symb_key = key[i % key.length()];
-        //cout << (int)symb << "__" << ((int)symb_key - (int)'a') << endl;
-        // int symbole = (int)symb + ((int)symb_key - (int)'a');
-        //  if (symbole > (int)'z') { symbole = symbole - 26; }
         int symbole = ((int)symb - (int)symb_key) % 127;
         if (symbole < 0) { symbole = 127 + symbole; }
         file_2 << (char)(symbole);
@@ -68,18 +61,8 @@ void to_shifr(ifstream& file, ofstream& file_2, string key) {
     int i = 0;
     file_2 << "";
     while (file.get(symb)) {
-        //symb = tolower(symb);
-        //if (is_alpha(symb)) {
         symb_key = key[i % key.length()];
-        //cout << (int)symb << "__" << ((int)symb_key - (int)'a') << endl;
-        // int symbole = (int)symb + ((int)symb_key - (int)'a');
-        //  if (symbole > (int)'z') { symbole = symbole - 26; }
         file_2 << (char)(((int)symb + (int)symb_key) % 127);
-
-        //}
-        //else {
-        //file_2 << symb;
-        //}
         i++;
     }
 }
@@ -111,7 +94,6 @@ int main()
         cout << "Error. Try again!\n";
     }
     key = input_keyword();
-    //cout << "New key:" << key << endl;
     while (!flag) {
         switch (choice) {
         case 1: {
