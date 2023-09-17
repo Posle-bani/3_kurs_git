@@ -4,27 +4,6 @@
 #include <cctype>
 using namespace std;
 
-string input_keyword() {
-    int flag = 0;
-    string key;
-    while (!flag) {
-        cout << "Input keyword:\n";
-        cin >> key;
-        for (auto symb : key) {
-            if ((symb >= 'A' && symb <= 'Z') || (symb >= 'a' && symb <= 'z')) {
-                symb = tolower(symb);
-                flag = 1;
-            }
-            else {
-                cout << "Invalid character detected, please enter alphabet only\n";
-                flag = 0;
-                break;
-            }
-        }
-    }
-    return key; 
-}
-
 ifstream correct_ifstream(string& name_file, int choice) {
     choice == 1 ? cout << "Input name of file with text:\n" : cout << "Input name of file with shifr:\n";
     cin >> name_file;
@@ -43,26 +22,13 @@ ifstream correct_ifstream(string& name_file, int choice) {
     return file;
 }
 
-void deshifr(ifstream& file, ofstream& file_2, string key) {
+void Vijener(ifstream& file, ofstream& file_2, string key, int choice) {
     char symb, symb_key;
     int i = 0;
     file_2 << "";
     while (file.get(symb)) {
-        symb_key = key[i % key.length()];
-        int symbole = ((int)symb - (int)symb_key) % 127;
-        if (symbole < 0) { symbole = 127 + symbole; }
-        file_2 << (char)(symbole);
-        i++;
-    }
-}
-
-void to_shifr(ifstream& file, ofstream& file_2, string key) {
-    char symb, symb_key;
-    int i = 0;
-    file_2 << "";
-    while (file.get(symb)) {
-        symb_key = key[i % key.length()];
-        file_2 << (char)(((int)symb + (int)symb_key) % 127);
+        symb_key = key[i % key.size()];
+        choice == 2 ? file_2.put((symb - symb_key + 128) % 128) : file_2.put((symb + symb_key) % 128);
         i++;
     }
 }
@@ -74,14 +40,14 @@ void process(int choice, string key) {
         cout << "Input name of file with shifr:\n";
         cin >> shifr;
         ofstream file_2(shifr);
-        to_shifr(file, file_2, key);
+        Vijener(file, file_2, key, choice);
     }
     else {
         ifstream file = correct_ifstream(shifr, choice);
         cout << "Input name of file with text:\n";
         cin >> text;
         ofstream file_2(text);
-        deshifr(file, file_2, key);
+        Vijener(file, file_2, key, choice);
     }
 }
 
@@ -93,7 +59,8 @@ int main()
     while (!(cin >> choice)) {
         cout << "Error. Try again!\n";
     }
-    key = input_keyword();
+    cout << "Input keyword:\n";
+    cin >> key;
     while (!flag) {
         switch (choice) {
         case 1: {
