@@ -1,18 +1,18 @@
 ﻿#include "Group_Kosov.h"
 
-Group::Group() {
+Group_Kosov::Group_Kosov() {
     vector<Student_Kosov*> students = {};
 }
 
-void Group::input_student(Student_Kosov* student) {
+void Group_Kosov::input_student(Student_Kosov* student) {
     students.push_back(student);
 }
 
-int Group::size_group() {
+int Group_Kosov::size_group() {
     return (int)students.size();
 }
 
-void Group::print_all() {
+void Group_Kosov::print_all() {
     if (students.size() == 0) {
         cout << "Nothing to output:(\n";
     }
@@ -21,13 +21,13 @@ void Group::print_all() {
         });
 }
 
-void Group::write_to_file(string way_to_file) {
+void Group_Kosov::write_to_file(string way_to_file) {
     for_each(students.begin(), students.end(), [way_to_file](Student_Kosov* student) {
         student->write_to_file(way_to_file);
         });
 }
 
-void Group::clearr() {
+void Group_Kosov::clearr() {
     for (Student_Kosov* student : students) {
         delete student;
     }

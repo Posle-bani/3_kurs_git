@@ -6,8 +6,7 @@ using namespace std;
 int main()
 {
     int choise, flag = 0, id = 0;
-    Student_Kosov student;
-    Group group;
+    Group_Kosov group;
     while (flag != 1) {
         cout << "\nChoose next:\n1. Input new student.\n2. Output students.\n3. Input students from file.\n4. Output student in file.\n5. Clear.\n0. Exit.\n";
         while (!(cin >> choise)) {
@@ -15,9 +14,8 @@ int main()
         };
         switch (choise) {
         case 1: {
-            student.init_student(++id);
             Student_Kosov* ptr = new Student_Kosov;
-            *ptr = student;
+            ptr->init_student(++id);
             group.input_student(ptr);
             break;
         }
@@ -32,17 +30,20 @@ int main()
             ifstream file(way_to_file);
             if (!file.is_open()) {
                 cerr << "Can`t open file.\n";
-                break;
             }
-            while (file >> student) {
-                id = check_id(student.get_id(), group.size_group());
-                student.id = id;
-                Student_Kosov* ptr = new Student_Kosov;
-                *ptr = student;
-                group.input_student(ptr);
+            else {
+                int size;
+                file >> size;
+                for (int i = 0; i < size; i++) {
+                    Student_Kosov* ptrr = new Student_Kosov;
+                    file >> ptrr;
+                    id = check_id(ptrr->get_id(), group.size_group());
+                    ptrr->id = id;
+                    group.input_student(ptrr);
+                }
+                file.close();
+                cout << "Success\n";
             }
-            file.close();
-            cout << "Success\n";
             break;
         }
         case 4: {
@@ -55,6 +56,7 @@ int main()
                 break;
             }
             file << "";
+            file << group.size_group() << endl;
             group.write_to_file(way_to_file);
             file.close();
             cout << "Success\n";
@@ -68,6 +70,7 @@ int main()
         }
         case 0: {
             flag = 1;
+            group.clearr();
             cout << "Exit...";
             break;
         }

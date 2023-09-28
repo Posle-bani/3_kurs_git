@@ -5,11 +5,11 @@
 
 using namespace std;
 
-class Group {
+class Group_Kosov {
 private:
     vector<Student_Kosov*> students;
 public:
-    Group();
+    Group_Kosov();
     void input_student(Student_Kosov* student);
     int size_group();
     void print_all();

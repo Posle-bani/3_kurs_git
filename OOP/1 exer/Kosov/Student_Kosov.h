@@ -17,7 +17,7 @@ public:
     void init_student(int valueId);
     int get_id();
     void print_info();
-    friend ifstream& operator>>(ifstream& input, Student_Kosov& student);
+    friend ifstream& operator>>(ifstream& input, Student_Kosov* student);
     void write_to_file(string nameFile);
 };
 
